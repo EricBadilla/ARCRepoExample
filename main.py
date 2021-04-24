@@ -15,13 +15,91 @@ import Code.waypoint_class
 
 
 # EDIT HERE
+from mpl_toolkits.mplot3d import axes3d
+
 def main_function(waypoints, sock):
 
     # Insert your functions here. If you want to import additional functions that you've created, feel free to do so. However, make sure the 
     # file paths still
 
 
+    #Set up 3 axies chart
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
 
+    #XYZ data to be graphed
+    X=[0,11.6,31.6,51.6,71.6,91.6,104.6,69.6,41.6,20.6,6.6,-0.4,-0.4,11.2,31.2,51.2,71.2,91.2,104.2,69.2,41.2,20.2,6.2,-0.8,-0.8,-12.4,-32.4,-52.4,-72.4,-92.4,-105.4,-70.4,-42.4,-21.4,-7.4,-0.4,-0.4,-12,-32,-52,-72,-92,-105,-70,-42,-21,-7,0,0]
+    Y=[0,0,7,21,42,70,105,92,72,52,32,12,0.4,0.4,-6.6,-20.6,-41.6,-69.6,-104.6,-91.6,-71.6,-51.6,-31.6,-11.6,0,0,7,21,42,70,105,92,72,52,32,12,0.4,0.4,-6.6,-20.6,-41.6,-69.6,-104.6,-91.6,-71.6,-51.6,-31.6,-11.6,0]
+    #Z=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    #Make 3D plot of origonal XYZ data
+
+    
+    ax.plot3D(X,Y,'*-')
+
+    #Show 3d plot
+    plt.show()
+    
+    # Put Tello into command mode
+    send("command", 3)
+
+    # Send the takeoff command
+    send("takeoff", 10)
+
+    #4 leaf clover
+    send("go " + str(11.6) + " " + str(0) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(20) + " " + str(7) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(20) + " " + str(14) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(20) + " " + str(21) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(20) + " " + str(28) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(13) + " " + str(35) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-35) + " " + str(-13) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-28) + " " + str(-20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-21) + " " + str(-20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-14) + " " + str(-20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-7) + " " + str(-20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(0) + " " + str(-11.6) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(11.6) + " " + str(0) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(20) + " " + str(-7) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(20) + " " + str(-14) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(20) + " " + str(-21) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(20) + " " + str(-28) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(13) + " " + str(-35) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-35) + " " + str(13) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-28) + " " + str(20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-21) + " " + str(20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-14) + " " + str(20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-7) + " " + str(20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(0) + " " + str(11.6) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-11.6) + " " + str(0) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-20) + " " + str(7) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-20) + " " + str(14) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-20) + " " + str(21) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-20) + " " + str(28) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-13) + " " + str(35) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(35) + " " + str(-13) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(28) + " " + str(-20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(21) + " " + str(-20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(14) + " " + str(-20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(7) + " " + str(-20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(0) + " " + str(-11.6) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-11.6) + " " + str(0) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-20) + " " + str(-7) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-20) + " " + str(-14) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-20) + " " + str(-21) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-20) + " " + str(-28) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(-13) + " " + str(-35) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(35) + " " + str(13) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(28) + " " + str(20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(21) + " " + str(20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(14) + " " + str(20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(7) + " " + str(20) + " " + str(0) + " " + str(60), 5)
+    send("go " + str(0) + " " + str(11.6) + " " + str(0) + " " + str(60), 5)
+
+    # Land
+    send("land", 5)
+
+    # Print message
+    print("Mission completed successfully!")
 
     return
 
@@ -130,7 +208,7 @@ def receive():
             print("Error receiving: " + str(e))
             break
 
-if __name__ == "main":
+if __name__ == "__main__":
 
     # Create and start a listening thread that runs in the background
     # This utilizes our receive functions and will continuously monitor for incoming messages
@@ -148,4 +226,3 @@ if __name__ == "main":
 
     # Close the socket
     sock.close()
-
